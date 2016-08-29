@@ -31,7 +31,7 @@ def cp_pseudospectral(max_order=10, sparse=False, rule='G'):
     for order in range(max_order):
         P, norms = orth_ttr(order, dist, retall=True)
         nodes, weights = generate_quadrature(
-            order, dist, sparse=sparse, rule=rule)
+            order + 1, dist, sparse=sparse, rule=rule)
         solves = [u(s[0], s[1]) for s in nodes.T]
         u_hat = fit_quadrature(P, nodes, weights, solves, norms=norms)
         errors[order] = L2norm_in_random_space2D(u, u_hat)
