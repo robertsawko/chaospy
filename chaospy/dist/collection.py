@@ -1228,6 +1228,7 @@ shift :  float, Dist
     """
     dist = co.wald(mu)*scale + shift
     dist.addattr(str="Wald(%s,%s,%s)"%(mu, scale, shift))
+    return dist
 
 
 def Weibull(shape=1, scale=1, shift=0):
